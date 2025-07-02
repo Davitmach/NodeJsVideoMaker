@@ -104,6 +104,15 @@ bot.on("photo", async (ctx) => {
   })();
 });
 
-bot.launch().then(() => console.log("🤖 Bot started"));
+const DOMAIN = 'https://nodejsvideomaker.onrender.com'; 
+const TOKEN = BOT_TOKEN; 
+
+bot.launch({
+  webhook: {
+    domain: DOMAIN,
+    port:  3000, 
+    hookPath: `/${TOKEN}`
+  }
+});
 process.once("SIGINT", () => bot.stop("SIGINT"));
 process.once("SIGTERM", () => bot.stop("SIGTERM"));
