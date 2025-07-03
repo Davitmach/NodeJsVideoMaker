@@ -69,6 +69,7 @@ bot.on("photo", async (ctx) => {
       if (!taskId)
         return ctx.reply("❌ Не удалось создать задачу на стороне Kling AI.");
 
+      
       /* 3. Poll до 10 минут (60 итераций × 10 с) */
       let videoUrl;
       for (let i = 0; i < 60; i++) {
